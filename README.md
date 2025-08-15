@@ -1,8 +1,8 @@
 # numerical-option-pricing-duke-energy
 
-Methods and code to study **numerical option pricing** using **Duke Energy Corporation** daily closing prices.
+Methods and code to study **numerical option pricing** using **Duke Energy Corporation (DUK)** daily closing prices. We develop an end‑to‑end methodology to price European call options under the **Black–Scholes** framework, **validating GBM assumptions** before pricing. Besides, data provided contains closing prices of different companies which follow GBM assumptions.
 
-> This repository accompanies an academic project. It focuses on methodology and reproducible workflows rather than business KPIs.
+> This repository accompanies an academic project. It focuses on methodology and reproducibility rather than business KPIs.
 
 ## 📦 Project Structure
 
@@ -24,46 +24,68 @@ numerical-option-pricing-duke-energy/
 └─ README.md
 ```
 
-Mostrar siempre los detalles
 
 ## 🎯 Goals
-- Implement and compare numerical methods for option pricing:
-  - **Binomial/Trinomial trees**
-  - **Black–Scholes (closed-form for European options)**
-  - **Monte Carlo simulation**
-  - *(optional)* **Finite-difference schemes** for PDEs
-- Use Duke Energy (DUK) closing prices as underlying data.
-- Provide a clear, reproducible pipeline in MATLAB Live Script (`.mlx`).
+- Validate **GBM** assumptions on DUK closing prices.
+- Implement and compare numerical methods for European call pricing:
+  - Black–Scholes (closed form)
+  - Monte Carlo simulation
+  - Binomial tree
+  - Explicit finite‑difference scheme
+- Provide a clear, reproducible pipeline in **MATLAB Live Script** (`.mlx`).
 
 ## 📑 Data
-- `data/raw/datos.xlsx` — input dataset (closing prices). Replace or augment with your own series as needed.
-- If you later fetch data via APIs, keep raw dumps in `data/raw/` and document the source in this section.
+- **Source**: Yahoo Finance
+- **Range**: 2023‑05‑15 to 2025‑05‑09 (daily).
+- `data/raw/datos.xlsx`: input dataset with closing prices of several companies.
+> If you later fetch data via APIs, keep raw dumps in `data/raw/` and document the source here.
 
 ## 🛠️ Requirements
-- **MATLAB R2021b+** (Live Scripts `.mlx`)
-  - Toolboxes typically used: *Statistics and Machine Learning Toolbox*, *Financial Toolbox* (if available).
-- Optional: Python/R for auxiliary analysis (not required).
+- **MATLAB R2024b** (Live Script `.mlx`).
+  - Typical toolboxes: *Statistics and others*, *Financial Toolbox* (if available).
+- Optional: Python/R for auxiliary checks.
 
 ## ▶️ How to Run (MATLAB)
-1. Open `code/matlab/Proyecto_EstocasticosII_AreizaParraSerna.mlx` in MATLAB.
-2. Adjust the path to the dataset if necessary (it expects `data/raw/datos.xlsx`).
-3. Run the Live Script sections sequentially (from top to bottom).
+1. Open `code/matlab/Proyecto_EstocasticosII_AreizaParraSerna.mlx`.
+2. Ensure `data/raw/datos.xlsx` is available.
+3. Run the Live Script sections from top to bottom.
 
-## 📚 Methodology (high-level)
-- **Preprocessing:** clean and align closing prices; compute log-returns if needed.
-- **Volatility:** estimate historical or GARCH-style volatility (optional).
-- **Pricing:** apply chosen numerical methods to European call/put options.
-- **Validation:** sanity checks (no-arbitrage bounds, convergence when refining steps, MC variance reduction).
+## 📚 Methodology (high‑level)
+1. **Exploratory analysis** of prices/returns; highlight outliers and news events.
+2. **Assumption checks for GBM** on returns:
+   - Partial autocorrelation (PACF) — no significant autocorrelation.
+     Hurst exponent and fractal dimension indicating trend‑like behavior.
+   - Normality tests (Jarque–Bera, KS, Anderson–Darling, Lilliefors).
+   - Homoskedasticity checks (ARCH and White tests).
+   - Cumulative volatility profile.
+3. **Parameter estimation** for GBM; **in‑sample forecasting** with 1,000 simulated paths and MAPE as accuracy criterion.
+4. **Risk‑neutral valuation**:
+   - Price European calls using **Black–Scholes**, **Monte Carlo**, **Binomial**, **Explicit Finite Differences**.
+   - **Risk‑free rate**: r = 0.05. Initial spot: last observed price.
+   - Maturities **T ∈ {1, 1/2, 1/3, 1/4}** (years).
+   - Strikes **K1…K5** derived from simulated projections (see `docs`).
+
+## 🔎 Results (summary)
+- **Model fit**: in‑sample **MAPE ≈ 1.2%** (good forecast accuracy).
+- **Pricing**: methods broadly agree according to Black-Scholes equation.
+- **Efficiency**: explicit finite differences is the most computationally expensive, especially for larger **T** and **K** (grid grows with domain size).
+- **Caveat**: when the option’s reference price is extremely small (deep OTM), tiny absolute errors translate into large **relative** errors.
+
+See tables and figures in `docs/Procesos_Estocasticos_II_Proyecto.pdf` for detailed numbers.
+
+## 🧪 Reproducibility notes
+- MATLAB R2024b; some statistical tests used native functions.
+- Hurst and fractal dimension are estimated with MATLAB self-implementations (documented briefly in the paper).
+- Original experiments leveraged CPU parallelization; GPU not required.
 
 ## 📄 Documentation
-- `docs/Procesos_Estocasticos_II_Proyecto.pdf` contains the original project document (Spanish).
+- `docs/Procesos_Estocasticos_II_Proyecto.pdf` — full paper (Spanish), journal style. An English summary may be added in future updates.
 
-## 🤝 Contributing (personal use)
-This is a personal academic repo. Feel free to fork. Issues and PRs are welcome but not expected.
+## 🤝 Contributing
+Personal academic repo. Forks welcome; issues/PRs are optional.
 
 ## 📜 License
 MIT — see `LICENSE`.
 
 ## 🙌 Acknowledgements
 - Universidad EAFIT — coursework and guidance.
-- Classic references in option pricing and stochastic calculus.
