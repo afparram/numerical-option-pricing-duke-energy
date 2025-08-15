@@ -4,7 +4,7 @@ Methods and code to study **numerical option pricing** using **Duke Energy Corpo
 
 > This repository accompanies an academic project. It focuses on methodology and reproducibility rather than business KPIs.
 
-## 📦 Project Structure
+## Project Structure
 
 ```
 numerical-option-pricing-duke-energy/
@@ -25,7 +25,7 @@ numerical-option-pricing-duke-energy/
 ```
 
 
-## 🎯 Goals
+## Goals
 - Validate **GBM** assumptions on DUK closing prices.
 - Implement and compare numerical methods for European call pricing:
   - Black–Scholes (closed form)
@@ -34,23 +34,23 @@ numerical-option-pricing-duke-energy/
   - Explicit finite‑difference scheme
 - Provide a clear, reproducible pipeline in **MATLAB Live Script** (`.mlx`).
 
-## 📑 Data
+## Data
 - **Source**: Yahoo Finance
 - **Range**: 2023‑05‑15 to 2025‑05‑09 (daily).
 - `data/raw/datos.xlsx`: input dataset with closing prices of several companies.
 > If you later fetch data via APIs, keep raw dumps in `data/raw/` and document the source here.
 
-## 🛠️ Requirements
+## Requirements
 - **MATLAB R2024b** (Live Script `.mlx`).
   - Typical toolboxes: *Statistics and others*, *Financial Toolbox* (if available).
 - Optional: Python/R for auxiliary checks.
 
-## ▶️ How to Run (MATLAB)
+## How to Run (MATLAB)
 1. Open `code/matlab/Proyecto_EstocasticosII_AreizaParraSerna.mlx`.
 2. Ensure `data/raw/datos.xlsx` is available.
 3. Run the Live Script sections from top to bottom.
 
-## 📚 Methodology (high‑level)
+## Methodology (high‑level)
 1. **Exploratory analysis** of prices/returns; highlight outliers and news events.
 2. **Assumption checks for GBM** on returns:
    - Partial autocorrelation (PACF) — no significant autocorrelation.
@@ -65,7 +65,7 @@ numerical-option-pricing-duke-energy/
    - Maturities **T ∈ {1, 1/2, 1/3, 1/4}** (years).
    - Strikes **K1…K5** derived from simulated projections (see `docs`).
 
-## 🔎 Results (summary)
+## Results (summary)
 - **Model fit**: in‑sample **MAPE ≈ 1.2%** (good forecast accuracy).
 - **Pricing**: methods broadly agree according to Black-Scholes equation.
 - **Efficiency**: explicit finite differences is the most computationally expensive, especially for larger **T** and **K** (grid grows with domain size).
@@ -73,15 +73,15 @@ numerical-option-pricing-duke-energy/
 
 See tables and figures in `docs/Procesos_Estocasticos_II_Proyecto.pdf` for detailed numbers.
 
-## 🧪 Reproducibility notes
+## Reproducibility notes
 - MATLAB R2024b; some statistical tests used native functions.
 - Hurst and fractal dimension are estimated with MATLAB self-implementations (documented briefly in the paper).
 - Original experiments leveraged CPU parallelization; GPU not required.
 
-## 📄 Documentation
+## Documentation
 - `docs/Procesos_Estocasticos_II_Proyecto.pdf` — full paper (Spanish), journal style. An English summary may be added in future updates.
 
-## 🤝 Contributing
+## Contributing
 Personal academic repo. Forks welcome; issues/PRs are optional.
 
 ## 📜 License
