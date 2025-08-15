@@ -9,18 +9,31 @@ Methods and code to study **numerical option pricing** using **Duke Energy Corpo
 
 numerical-option-pricing-duke-energy/
 ├─ code/
+
 │ └─ matlab/
+
 │ └─ Proyecto_EstocasticosII_AreizaParraSerna.mlx
+
 ├─ data/
+
 │ └─ raw/
+
 │ └─ datos.xlsx
+
 ├─ docs/
+
 │ └─ Procesos_Estocasticos_II_Proyecto.pdf
+
 ├─ .github/
+
 │ └─ workflows/ # (optional CI, empty by default)
+
 ├─ .gitignore
+
 ├─ LICENSE
+
 ├─ CITATION.cff
+
 └─ README.md
 
 Mostrar siempre los detalles
