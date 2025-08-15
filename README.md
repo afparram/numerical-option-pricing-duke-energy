@@ -6,7 +6,7 @@ Methods and code to study **numerical option pricing** using **Duke Energy Corpo
 
 ## 📦 Project Structure
 
-
+```
 numerical-option-pricing-duke-energy/
 ├─ code/
 │ └─ matlab/
@@ -22,6 +22,7 @@ numerical-option-pricing-duke-energy/
 ├─ LICENSE
 ├─ CITATION.cff
 └─ README.md
+```
 
 Mostrar siempre los detalles
 
