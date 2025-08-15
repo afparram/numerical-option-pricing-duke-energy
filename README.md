@@ -83,9 +83,3 @@ See tables and figures in `docs/Procesos_Estocasticos_II_Proyecto.pdf` for detai
 
 ## Contributing
 Personal academic repo. Forks welcome; issues/PRs are optional.
-
-## 📜 License
-MIT — see `LICENSE`.
-
-## 🙌 Acknowledgements
-- Universidad EAFIT — coursework and guidance.
