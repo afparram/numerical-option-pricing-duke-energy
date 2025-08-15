@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: If you use this repository, please cite it as below.
+title: numerical-option-pricing-duke-energy
+authors:
+  - family-names: Parra
+    given-names: Andrés Felipe
+license: MIT
+date-released: 2025-08-15
+keywords:
+  - option pricing
+  - numerical methods
+  - Duke Energy
+  - stochastic calculus
+  - MATLAB
