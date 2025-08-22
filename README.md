@@ -1,6 +1,6 @@
 # numerical-option-pricing-duke-energy
 
-Methods and code to study **numerical option pricing** using **Duke Energy Corporation (DUK)** daily closing prices. We develop an end‑to‑end methodology to price European call options under the **Black–Scholes** framework, **validating GBM assumptions** before pricing. Besides, data provided contains closing prices of different companies which follow GBM assumptions.
+Methods and code to study **numerical option pricing** using **Duke Energy Corporation (DUK)** daily closing prices. We developed an end‑to‑end methodology to price European call options under the **Black–Scholes** framework, **validating GBM assumptions** before pricing. Besides, data provided contains closing prices of different companies which follow GBM assumptions.
 
 > This repository accompanies an academic project. It focuses on methodology and reproducibility rather than business KPIs.
 
@@ -46,7 +46,7 @@ numerical-option-pricing-duke-energy/
 - Optional: Python/R for auxiliary checks.
 
 ## How to Run (MATLAB)
-1. Open `code/matlab/Proyecto_EstocasticosII_AreizaParraSerna.mlx`.
+1. Open `code/matlab/optionprice.mlx`.
 2. Ensure `data/raw/datos.xlsx` is available.
 3. Run the Live Script sections from top to bottom.
 
