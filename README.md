@@ -71,7 +71,7 @@ numerical-option-pricing-duke-energy/
 - **Efficiency**: explicit finite differences is the most computationally expensive, especially for larger **T** and **K** (grid grows with domain size).
 - **Caveat**: when the option’s reference price is extremely small (deep OTM), tiny absolute errors translate into large **relative** errors.
 
-See tables and figures in `docs/Procesos_Estocasticos_II_Proyecto.pdf` for detailed numbers.
+See tables and figures in `docs/article.pdf` for detailed numbers.
 
 ## Reproducibility notes
 - MATLAB R2024b; some statistical tests used native functions.
@@ -79,7 +79,7 @@ See tables and figures in `docs/Procesos_Estocasticos_II_Proyecto.pdf` for detai
 - Original experiments leveraged CPU parallelization; GPU not required.
 
 ## Documentation
-- `docs/Procesos_Estocasticos_II_Proyecto.pdf` — full paper (Spanish), journal style. An English summary may be added in future updates.
+- `docs/article.pdf` — full paper (Spanish), journal style. An English summary may be added in future updates.
 
 ## Contributing
 Personal academic repo. Forks welcome; issues/PRs are optional.
